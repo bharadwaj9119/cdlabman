@@ -1,0 +1,53 @@
+#include<stdio.h> #include<conio.h> #include<string.h> #include<stdlib.h> void main() 
+
+{ 
+
+//e,e'=E,t,t'=T 
+
+char input[7]="i+i*i$",m[6][7][9]={" ","+","*","(",")","i","$", 
+
+"e","_","_","e->tE","_","e->tE","_", 
+
+"E","E->+tE","_","_","E->@","_","E->@", 
+
+"t","_","_","t->fT","_","t->fT","_", 
+
+"T","T->@","T->*fT","_","T->@","_","_", 
+
+"f","_","_","f->(e)","_","f->i","_"}; 
+
+char stack[20],x,a,prod[6]; 
+
+int i,j,k,inp=0,top=0,xp,ap,max=6; stack[0]='$'; 
+
+clrscr(); 
+
+printf("Predictive Parser\n"); printf("\nStack\tInput\n"); printf("	"); top++; 
+
+stack[top]='e'; do 
+
+{ 
+
+a=input[inp]; x=stack[top]; if(x==a) 
+
+{ 
+
+printf("\n"); for(i=0;i<top;i++) printf("%c",stack[i]); printf("\t%s",input); stack[top]=' '; 
+
+input[inp]=' '; top--; 
+
+inp++; 
+
+} 
+
+else 
+
+{ 
+
+//finding positions for(i=0;i<7;i++) if(m[0][i][0]==a) 
+
+{ 
+
+ap=i; break; 
+
+ 
